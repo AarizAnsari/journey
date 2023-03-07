@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js"></script>
+    <title>Travel</title>
+</head>
+<style>
+    #bg {
+        background-image: url("https://prod-virtuoso.dotcmscloud.com/dA/188da7ea-f44f-4b9c-92f9-6a65064021c1/previewImage/PowerfulReasons_hero.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        height: 1000px;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 100%;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+
+    .city {
+        height: 50px;
+        border: 2px solid white;
+        border-radius: 10px;
+        margin: 20px;
+    }
+
+    option,
+    label {
+        font-size: large;
+        background-color: bisque;
+    }
+
+    button {
+        background-color: azure;
+        border: 3px solid azure;
+        border-radius: 10px;
+    }
+
+    #route_cont {
+        color: azure;
+        display: inline;
+        font-size: large;
+        width: 400px;
+    }
+
+    #routes_list {
+        width: 500px;
+        background-color: black;
+    }
+</style>
+
+<body>
+    <div id="bg">
+
+        <!----------------SOURCE SELECTION LIST------------------>
+        <label for="source">Source:</label>
+
+        <select onchange="setSource(true)" name="city" class="city" id="source">
+            <option selected disabled>Source</option>
+            <option id="source_delhi" value="delhi">Delhi</option>
+            <option id="source_noida" value="noida">Noida</option>
+            <option id="source_lucknow" value="lucknow">Lucknow</option>
+            <option id="source_roorkee" value="roorkee">Roorkee</option>
+            <option id="source_mumbai" value="mumbai">Mumbai</option>
+            <option id="source_jaipur" value="jaipur">Jaipur</option>
+        </select>
+
+
+        <label for="destination">Destination:</label>
+
+        <!----------------DESTINATION SELECTION LIST------------------>
+        <select onchange="setDestination(true)" class="city" id="destination">
+            <option selected disabled>Destination</option>
+            <option id="dest_delhi" value="delhi">Delhi</option>
+            <option id="dest_noida" value="noida">Noida</option>
+            <option id="dest_lucknow" value="lucknow">Lucknow</option>
+            <option id="dest_roorkee" value="roorkee">Roorkee</option>
+            <option id="dest_mumbai" value="mumbai">Mumbai</option>
+            <option id="dest_jaipur" value="jaipur">Jaipur</option>
+        </select>
+
+        <!----------------ROUTE DISPLAY ELEMENTS------------------>
+        <p id="from"></p>
+        <p id="to"></p>
+        <button onclick="setRoute()" id="journey_button">Set Journey</button>
+        <div id="route_cont">
+            <p id="routes_list"></p>
+        </div>
+    </div>
+</body>
+
+</html>
