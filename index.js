@@ -63,6 +63,11 @@ function setRoute() {
         if (source == '' || destination == '') {
             throw "Please select source and destination";
         }
+        
+        if(routes[source].indexOf(destination)>0){
+            throw "Route is already selected";
+        }
+
         else {
             routes[source][routes[source].length] = destination;
 
