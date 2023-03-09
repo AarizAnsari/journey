@@ -49,7 +49,7 @@ function setDestination(trigger) {
 
         let blocked = routes[x];
 
-        for (let i = 0; i < blocked.length; i++) {
+        for (let i = 0; i < 1; i++) {
             document.getElementById('source').options[(cities.indexOf(blocked[i])) + 1].disabled = true;
         }
         document.getElementById('to').innerHTML = ("To :" + x).toUpperCase();
@@ -63,7 +63,6 @@ function setRoute() {
         if (source == '' || destination == '') {
             throw "Please select source and destination";
         }
-        
         if(routes[source].indexOf(destination)>0){
             throw "Route is already selected";
         }
