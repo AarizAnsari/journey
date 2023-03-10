@@ -14,6 +14,14 @@ const routes = {
     'jaipur': ['jaipur']
 };
 
+const rev_routes = {
+    'delhi': ['delhi'],
+    'noida': ['noida'],
+    'lucknow': ['lucknow'],
+    'roorkee': ['roorkee'],
+    'mumbai': ['mumbai'],
+    'jaipur': ['jaipur']
+};
 const cities = ['delhi', 'noida', 'lucknow', 'roorkee', 'mumbai', 'jaipur'];
 
 //FUNCTION TO DISABLE DESTINATION CITY WHEN SELECTED IN SOURCE
@@ -47,9 +55,9 @@ function setDestination(trigger) {
     if (trigger) {
         let x = document.getElementById('destination').value;
 
-        let blocked = routes[x];
+        let blocked = rev_routes[x];
 
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < blocked.length; i++) {
             document.getElementById('source').options[(cities.indexOf(blocked[i])) + 1].disabled = true;
         }
         document.getElementById('to').innerHTML = ("To :" + x).toUpperCase();
@@ -63,13 +71,10 @@ function setRoute() {
         if (source == '' || destination == '') {
             throw "Please select source and destination";
         }
-        if(routes[source].indexOf(destination)>0){
-            throw "Route is already selected";
-        }
 
         else {
             routes[source][routes[source].length] = destination;
-
+            rev_routes[destination][rev_routes[destination].length] = source;
             let data = "Selected Routes : <br>";
 
             data = document.getElementById('routes_list').innerHTML;
